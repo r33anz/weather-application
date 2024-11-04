@@ -10,27 +10,30 @@ const FormComponent = ({ coordinates, onSubmit }) => {
       };
 
     return (
-        <form onSubmit={handleSubmit}>
-        <div>
-            <label htmlFor="start-date">Fecha Inicial:</label>
-            <input 
-            type="date" 
-            id="start-date" 
-            onChange={(e) => setStartDate(e.target.value)} 
-            required 
-            />
+        <div className="form-group">
+            <h2 className="section-title">Date Range</h2>
+            <form onSubmit={handleSubmit}>
+            <div>
+                <label htmlFor="start-date">Start Date:</label>
+                <input 
+                type="date" 
+                id="start-date" 
+                onChange={(e) => setStartDate(e.target.value)} 
+                required 
+                />
+            </div>
+            <div>
+                <label htmlFor="end-date">End date:</label>
+                <input 
+                type="date" 
+                id="end-date" 
+                onChange={(e) => setEndDate(e.target.value)} 
+                required 
+                />
+            </div>
+            <button type="submit">Send dates and coordinates</button>
+            </form>
         </div>
-        <div>
-            <label htmlFor="end-date">Fecha Final:</label>
-            <input 
-            type="date" 
-            id="end-date" 
-            onChange={(e) => setEndDate(e.target.value)} 
-            required 
-            />
-        </div>
-        <button type="submit">Enviar Coordenadas y fechas</button>
-        </form>
     );
 };
 

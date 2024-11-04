@@ -34,8 +34,9 @@ function Home() {
       </div>
 
       <div className="coordinate-container">
+        <h2 className="section-title">Coordinates</h2>
         <CoordinatesDisplay coordinates={coordinates}/>
-        <button onClick={handleSubmitWithCoordinates}> Enviar Coordenadas </button>
+        <button onClick={handleSubmitWithCoordinates}>Send Coordinates</button>
         <FormComponent coordinates={coordinates}  onSubmit={handleSubmitWithDates}/>
       </div>
     </div>
