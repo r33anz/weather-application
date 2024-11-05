@@ -14,9 +14,9 @@ app = Flask(__name__)
 CORS(app)
 
 limiter = Limiter(
-    get_remote_address,  # Limita por dirección IP
-    app=app,             # La instancia de Flask
-    default_limits=["200 per day", "50 per hour","4 per minute"]  # Limitar 200 solicitudes al día, 50 por hora
+    get_remote_address,
+    app=app,            
+    default_limits=["200 per day", "50 per hour","60 per minute"]  
 )
 
 app.register_blueprint(weather_bp)
