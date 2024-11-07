@@ -12,7 +12,7 @@ function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modaData, setModaData] = useState(null);
   const [isModalIteractiveOpen, setIsModalIteractiveOpen] = useState(false);
-  const [modalIteractiveData, setModalIteractiveData] = useState(null);
+  const [modalIteractiveData, setModalIteractiveData] = useState({});
   const [dates, setDates] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -67,7 +67,7 @@ function Home() {
 
   const closeModalIteractive = () => {
     setIsModalIteractiveOpen(false);
-    setModalIteractiveData(null);
+    setModalIteractiveData({});
   };
 
   const handlePrev = () => {
@@ -113,8 +113,8 @@ function Home() {
       <ModalIteractive 
         isOpen={isModalIteractiveOpen} 
         isclose={closeModalIteractive} 
-        data={currentData} 
-        date={currentDate} 
+        data={currentData || null} 
+        date={currentDate || null} 
         onPrev={handlePrev}
         onNext={handleNext}
         hasPrev={currentIndex > 0}

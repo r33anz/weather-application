@@ -2,7 +2,8 @@ import React from "react";
 import '../styles/modal.css'
 
 const Modal = ({isOpen, isclose, data , isIteactive})=> {
-    if(!isOpen) return null;
+  
+  if (!isOpen || !data) return null;
     
     const iconMapping = {
       "snow": "ac_unit", // Mapea "snow" al ícono "ac_unit" en Google Icon

@@ -1,6 +1,6 @@
 import React from "react";
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
-import '../styles/modal.css'
+import '../styles/modal-iteractive.css'
 
 const iconMapping = {
   "snow": "ac_unit",
@@ -33,13 +33,14 @@ const ModalInteractive = ({
   hasPrev, 
   hasNext 
 }) => {
-  if (!isOpen) return null;
+  
+  if (!isOpen || !data) return null;
 
   return (
     <div className="modal-overlay">
       <div className="modal-container">
-        <button className="close-button" onClick={isclose} aria-label="Close">
-          <X size={24} />
+        <button className="close-button" onClick={isclose}>
+          <X size={20} />
         </button>
 
         <div className="modal-content">
@@ -49,46 +50,41 @@ const ModalInteractive = ({
             <span className="material-icons weather-icon">{getIcon(data.icon)}</span>
           )}
 
-          <div className="weather-details">
-            {data.alert && (
-              <div className="alert-box">
-                <strong>Alert:</strong> {data.alert}
-              </div>
-            )}
-
-            <div className="info-row">
-              <strong>Condition:</strong> {data.conditions}
+          <div className="weather-info">
+            <div className="info-item">
+              <span className="label">Condition:</span>
+              <span className="value">{data.conditions}</span>
             </div>
 
-            <div className="info-row">
-              <strong>Temperature:</strong> {data.temp}°F
+            <div className="info-item">
+              <span className="label">Temperature:</span>
+              <span className="value">{data.temp}°F</span>
             </div>
 
             {data.description && (
-              <div className="info-row description">
-                <strong>Description:</strong> {data.description}
+              <div className="info-item">
+                <span className="label">Description:</span>
+                <span className="value">{data.description}</span>
               </div>
             )}
           </div>
 
-          <div className="navigation-controls">
+          <div className="navigation-buttons">
             {hasPrev && (
               <button 
-                className="nav-button prev" 
+                className="nav-button" 
                 onClick={onPrev}
-                aria-label="Previous day"
               >
-                <ChevronLeft size={24} />
+                &#8592;
               </button>
             )}
             
             {hasNext && (
               <button 
-                className="nav-button next" 
+                className="nav-button" 
                 onClick={onNext}
-                aria-label="Next day"
               >
-                <ChevronRight size={24} />
+                &#8594;
               </button>
             )}
           </div>
